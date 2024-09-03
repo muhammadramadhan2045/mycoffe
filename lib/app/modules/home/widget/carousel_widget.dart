@@ -11,32 +11,35 @@ class CarouselWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CarouselSlider.builder(
-      options: CarouselOptions(
-        height: 150,
-        aspectRatio: 256 / 90,
-        enlargeCenterPage: true,
-        enableInfiniteScroll: true,
-        autoPlay: true,
-        autoPlayAnimationDuration: const Duration(seconds: 2),
-        padEnds: false,
-        viewportFraction: 1,
-        disableCenter: true,
-        scrollPhysics: const BouncingScrollPhysics(),
-      ),
-      itemCount: imgList.length,
-      itemBuilder: (BuildContext context, int index, int realIndex) {
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 25),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            image: DecorationImage(
-              image: NetworkImage(imgList[index]),
-              fit: BoxFit.cover,
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: CarouselSlider.builder(
+        options: CarouselOptions(
+          height: 150,
+          aspectRatio: 256 / 90,
+          enlargeCenterPage: true,
+          enableInfiniteScroll: true,
+          autoPlay: true,
+          autoPlayAnimationDuration: const Duration(seconds: 2),
+          padEnds: false,
+          viewportFraction: 1,
+          disableCenter: true,
+          scrollPhysics: const BouncingScrollPhysics(),
+        ),
+        itemCount: imgList.length,
+        itemBuilder: (BuildContext context, int index, int realIndex) {
+          return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 20),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              image: DecorationImage(
+                image: NetworkImage(imgList[index]),
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-        );
-      },
+          );
+        },
+      ),
     );
   }
 }
